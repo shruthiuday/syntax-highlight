@@ -1,0 +1,25 @@
+{
+  "name": "infix",
+  "displayName": "infix",
+  "description": "temp",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "infix",
+      "aliases": ["infix", "infix"],
+      "extensions": [".infix"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "infix",
+      "scopeName": "source.infix",
+      "path": "./syntaxes/infix.tmLanguage.json"
+    }]
+  }
+}

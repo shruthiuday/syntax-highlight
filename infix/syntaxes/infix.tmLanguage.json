@@ -1,0 +1,64 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "infix",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#terminate"
+		},
+		{
+            "name": "constant.numeric",
+            "match": "\\b\\d+\\b"
+        },
+		{
+			"name": "keyword.rules",
+			"match": "\\b(RULES|RULESEND)\\b",
+			"captures": {
+				"0": {
+					"name": "keyword.rules"
+				}
+			}
+		},
+		{
+			"name": "variable",
+			"match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+			"captures": {
+				"0": {
+					"name": "variable.name"
+				}
+			}
+		}
+		
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.infix",
+				"match": "\\b(if|while|for|return|end|then)\\b"
+			}]
+		},
+		"terminate": {
+			"patterns": [{
+				"name": "support.function.infix",
+				"match": "\\b(rulestart|ruleend)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.infix",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.infix",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.infix"
+}
